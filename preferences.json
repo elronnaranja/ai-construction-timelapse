@@ -1,0 +1,20 @@
+{
+  "audio_mode": "construction_sfx_no_music",
+  "keep": [
+    "relevant tools and machinery",
+    "footsteps and material handling",
+    "visually appropriate water sounds"
+  ],
+  "exclude": [
+    "background music",
+    "musical score or beats",
+    "singing",
+    "narration",
+    "voiceover",
+    "dialogue",
+    "unrelated sounds"
+  ],
+  "silent_by_default": false,
+  "ending": "fully finished property with a two-second completed-image hold",
+  "cash_budget_default": 0
+}

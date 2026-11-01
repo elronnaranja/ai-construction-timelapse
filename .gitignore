@@ -1,0 +1,5 @@
+# Your videos, images and clips stay on your computer (GitHub rejects big files)
+projects/
+*.mp4
+*.mov
+.DS_Store
