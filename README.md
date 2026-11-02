@@ -2,7 +2,7 @@
 
 Make the viral "empty lot → finished dream house" timelapse video, with a separate reviewed construction-sound layer and no music.
 
-Nothing to copy, no prompts to edit, no video editor. You answer a few questions and get the final video.
+Nothing to copy, no prompts to edit, no video editor. Describe your idea; the agent uses saved defaults and runs through routine steps automatically.
 
 ---
 
@@ -24,16 +24,15 @@ Nothing to copy, no prompts to edit, no video editor. You answer a few questions
 Clone https://github.com/elronnaranja/ai-construction-timelapse and make me a construction video.
 ```
 
-**2. Answer its questions.** Where it is, what the lot looks like now, the house you want, pool or no pool, vertical or horizontal, and your credit limit. No idea yet? Say "surprise me".
+**2. Describe your idea.** Include any house, setting or background details you care about, or say "surprise me". Default: portrait 9:16, six images and five transitions.
 
-**3. Sign in to Google Flow** if Codex asks you to. It opens Flow in its browser; you sign in yourself.
+**3. Sign in to Google Flow** if needed. Use an account with at least 50 available credits.
 
-**4. Say yes or no when it asks.** It only stops for:
-- the finished house design, before it makes anything else
-- the credit cost, before it spends anything
-- anything Flow asks you to accept
+**4. Let the agent run.** Your request authorizes up to 50 existing credits: five transitions × 10 credits, one output each, no purchases. It checks the expected visible setting once and proceeds without repeated cost or design approvals. Prompts are prepared in advance and entered with a single fill/paste each. It stops only for a real blocker, required new legal consent, or unavailable audio listening review.
 
-**5. Get your video.** Codex makes the images and Flow clips, prepares separate construction effects, checks sound and picture, then assembles `final.mp4`. If audio cannot be listened to and approved, it stops for review instead of delivering an unchecked file.
+**5. Get your video.** The agent creates images and clips, adds separately reviewed construction effects, checks picture and sound, and assembles `final.mp4`.
+
+Optional: on a trusted checkout, allow file, browser and command access in your agent app to reduce permission prompts. Full access is optional; it does not replace Google login or required consent. Codex and Claude use their own permission settings.
 
 Want a clip changed? Tell Codex which clip and what. It redoes only that one.
 
@@ -47,7 +46,7 @@ You only clone once. Next time, open the same folder in Codex and say:
 Make me another construction video.
 ```
 
-It asks the questions again and starts a new project. Your past videos stay in `projects/`.
+It reuses your defaults and starts a new project. Your past videos stay in `projects/`.
 
 Stopped halfway (out of credits, closed the app)? Open the same folder and say **"continue my construction video"**. It picks up where it left off without redoing finished clips.
 
@@ -55,7 +54,7 @@ Stopped halfway (out of credits, closed the app)? Open the same folder and say *
 
 ## Good to know
 
-- **Credits:** Codex shows the live Flow cost and waits for your OK. It never buys credits.
+- **Credits:** The standard preset uses 50 Flow credits, not chat tokens. If your account has 50 free credits available, this Flow render has no additional cash cost. Free allocations, eligibility and pricing can change; this is not a promise of 50 free credits daily. Image generation and agent usage depend on your existing plan. The agent never buys credits.
 - **Out of credits?** It stops and saves everything. Say "continue" later.
 - **Your login stays yours:** you sign in to Google yourself. Never paste a password into the chat.
 - **It's AI:** some steps may morph a little between stages. It's a creative timelapse, not an engineering plan.

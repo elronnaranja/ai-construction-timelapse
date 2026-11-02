@@ -4,7 +4,7 @@ Give either agent this instruction, with access to this folder:
 
 > Read WORKFLOW.md and the project's manifest.json. Create or resume the six-stage construction transformation. Keep natural construction sounds; exclude background music, singing, narration and dialogue. Design the completed house first, preserve the specified surroundings, and end on the fully finished property. Discard Flow audio. Prepare separate music-free scene-effect tracks, listen to them, and record a hash-bound audio review before assembling with assemble.py. Stop if listening approval is unavailable. Use only the selected Flow account and authorized existing credits; no purchases. Reuse completed jobs and report unavailable tools or quality failures.
 
-For a new project provide the setting, before condition, final house/pool design, orientation, unchanged surroundings, Flow account and credit cap.
+For a new project, describe the idea. Defaults are portrait 9:16, six images, five transitions at 10 Flow credits each, a 50-existing-credit cap and no purchases. Starting a video authorizes this standard run; no repeated credit or hero-image approval is needed. Infer omitted creative details. Save all prompts first and fill/paste each in one operation. Stop only for real blockers, required new legal consent or unavailable listening review.
 
 Files:
 - `WORKFLOW.md`: the complete operating instructions.

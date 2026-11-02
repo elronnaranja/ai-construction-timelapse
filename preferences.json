@@ -21,5 +21,14 @@
   "flow_audio_allowed": false,
   "audio_review_required": true,
   "on_unreviewed_audio": "block_delivery",
-  "on_missing_sfx": "block_assembly"
+  "on_missing_sfx": "block_assembly",
+  "aspect_default": "9:16",
+  "flow_credits_per_transition_expected": 10,
+  "flow_transition_count": 5,
+  "flow_existing_credit_cap_default": 50,
+  "standard_run_preauthorized": true,
+  "hero_user_approval_required": false,
+  "prompt_entry": "single_fill_or_paste",
+  "pricing_check": "visible_project_settings_once",
+  "ask_only_for_blockers": true
 }

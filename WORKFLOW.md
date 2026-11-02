@@ -16,11 +16,11 @@ Save a project manifest containing:
 - Selected Flow account, existing-credit cap and cash budget; cash defaults to zero.
 - Ordered assets, exact prompts, submitted jobs, downloaded clips and current status.
 
-Reuse completed work when resuming. Confirm the visible account and current credit costs. Never change accounts, buy credits or exceed the agreed budget without authorization. Handle agreements under the agent's applicable confirmation rules.
+Reuse completed work when resuming. Standard-run authorization is 50 existing Flow credits, five transitions at 10 credits each, with zero cash spending. Use portrait 9:16 unless the brief says otherwise. Confirm the selected account and expected settings from the visible UI once; no separate pricing research or repeated credit-approval prompts. Never change accounts, buy credits or exceed the agreed budget without authorization. Handle agreements under the agent's applicable confirmation rules.
 
 ## 2. Create six images, starting with the ending
 
-Generate **06 completed house first**. Require finished roof, facade, windows, doors, paths, landscaping and furnishings. If requested, the pool is fully tiled, filled with clean water and surrounded by a finished deck. No workers, scaffolding, tools, materials or unfinished patches. Keep the whole house and pool in frame.
+Generate **06 completed house first**, review it yourself and continue without a user approval pause unless a preview was requested. Require finished roof, facade, windows, doors, paths, landscaping and furnishings. If requested, the pool is fully tiled, filled with clean water and surrounded by a finished deck. No workers, scaffolding, tools, materials or unfinished patches. Keep the whole house and pool in frame.
 
 Use that image to fix the camera, property outline, architecture and pool position. Derive the other stages:
 1. Original lot / before condition.
@@ -28,13 +28,13 @@ Use that image to fix the camera, property outline, architecture and pool positi
 3. Foundations and pool basin, if applicable.
 4. Structural shell.
 5. Exterior and grounds finishing.
-6. Approved completed house.
+6. Completed house.
 
 Use the previous stage plus the completed reference where supported. Change only the work area. Check all six images for camera, footprint and background consistency before spending video credits. Correct major geometry changes; minor texture differences alone do not require regeneration.
 
 ## 3. Animate five adjacent pairs in Flow
 
-Upload the six images once. Use **Frames**, the chosen aspect ratio, one output per job, and an economical model supporting both endpoints. Our tested setting was Veo 3.1 Lite, 720p, 8 seconds, 10 credits per output; verify the live settings and cost every run.
+Upload the six images once. Use **Frames**, the chosen aspect ratio, one output per job, and an economical model supporting both endpoints. Our tested setting was Veo 3.1 Lite, 720p, 8 seconds, 10 credits per output; use this preset and read its visible cost once when configuring the project. Proceed under the standing 50-credit authorization if it shows 10 per output. If the cost differs or is unclear, resolve that before spending; never assume pricing cannot change.
 
 Submit exactly five pairs: **01→02, 02→03, 03→04, 04→05, 05→06**. Each prompt combines a short phase-specific action with this common instruction:
 
@@ -44,7 +44,7 @@ Add to the final clip:
 
 > Complete all work before the ending. Remove every worker, scaffold, tool, bucket, material stack and piece of debris from the property. Finish the pool, deck, landscaping and furnishings. Final two seconds show only the fully completed property. Construction sounds subside as work ends; no music or speech.
 
-Record each submission once. Do not repeat Generate while a job is pending. Download original completed clips. Stop on exhausted credits; do not buy more or silently change the agreed settings.
+Save all five prompts in the project first. Enter each complete prompt with one supported fill/paste operation, not character-by-character typing; read it back once. Upload assets once and reuse them. Queue independent jobs if supported without duplicating submissions. Record each submission once. Do not repeat Generate while a job is pending. Download original completed clips. Stop on exhausted credits; do not buy more or silently change the agreed settings.
 
 ## 4. Build a separate music-free sound layer
 

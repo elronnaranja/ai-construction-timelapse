@@ -8,19 +8,11 @@ Treat any request like "make me a construction video" or "make me another one" a
 
 If the user says "continue" (or a project in `projects/` has an unfinished manifest), resume the most recent unfinished project instead. Read its manifest, reuse every finished image and clip, and skip the questions they already answered.
 
-### 1. Ask the questions (one message, short)
+### 1. Start immediately with saved defaults
 
-Ask everything in one numbered list, with an example answer for each, then wait:
+A request to make a video authorizes the standard run: six images, five adjacent transitions, one output each, 10 Flow credits per transition, maximum 50 existing credits, zero purchases. These are Flow credits, not chat tokens. Use portrait 9:16 and the selected signed-in account. Reuse the user's brief and preferences; choose reasonable creative details for anything omitted. Ask one short bundled question only when essential information cannot be inferred. Do not repeat a questionnaire, ask for a credit cap again, or require approval of the finished-house image unless the user requests a preview first.
 
-1. Where is it? (e.g. beachfront, mountain, city lot, riverside)
-2. What does the lot look like now? (e.g. empty grass, old shack, overgrown jungle, littered lot)
-3. What should the finished house look like? (style, floors, materials, colors)
-4. Pool? (no / yes, and where)
-5. What must stay the same around it? (e.g. neighbors, road, trees, the sea)
-6. Vertical 9:16 for TikTok/Reels/Shorts, or horizontal 16:9 for YouTube?
-7. How many Flow credits can I use at most? (one video is five clips; I'll check the live cost)
-
-Tell them they can just say "surprise me" for 1–5. Then pick a strong idea yourself, or offer 8 short numbered ideas if they'd rather choose.
+This authorization covers routine image creation, uploads, prompt entry, rendering, downloads, local assembly and corrections within the same 50-credit total. Failed jobs or retries do not create an extra budget. A request to create a video does not authorize purchases, subscriptions or account switching.
 
 ### 2. Set up, without bothering the user
 
@@ -32,16 +24,19 @@ Tell them they can just say "surprise me" for 1–5. Then pick a strong idea you
 
 Follow `WORKFLOW.md` exactly: manifest, finished house first, six images with your built-in image generator, five Flow clips in Frames mode, sound and picture review, then `assemble.py`. Keep natural construction sounds; no music, singing, narration or dialogue. Flow audio must never enter the final video. Prepare five separate music-free scene-effect tracks and obtain actual listening review with hashes/rights before assembly. If you cannot listen, do not approve audio or hand over a final video as finished; save status `audio_review_pending` and request a reviewer. See WORKFLOW.md and audio-review.example.json.
 
-### 4. The only times you stop
+### 4. Stop only for a real blocker
 
-Ask the user a short yes/no question and wait:
+- Missing login, unavailable tools, insufficient credits, a changed price/settings combination, or a correction that would exceed the 50-credit cap. Save progress and ask only for the decision needed.
+- A new legal/upload-rights notice when applicable browser or platform rules require explicit approval. Reuse an approval already given for that account and notice; do not ask again without a material change.
+- Required listening review if no capable listener is available. Never fabricate audio approval or bypass the music safeguards.
 
-1. **Image 06, the finished house.** Show it before making the other images. Redo it until they approve.
-2. **Before you spend Flow credits.** Show the live cost per clip and the total for five clips, and wait for their OK. Stay inside their credit limit. Never buy credits, start a subscription or change accounts.
-3. **Anything Flow asks you to accept** (upload notice, terms). Tell them what it says and wait for their OK.
-4. **A problem you can't fix within the budget** (out of credits, a clip that keeps failing). Explain it in one or two sentences and ask what they want.
+Do not ask “shall I continue?”, re-confirm the standard 50-credit run, or stop for routine intermediate image reviews. State the planned budget once as a progress update. When Flow's visible settings show the expected 10-credit cost, proceed; do not research pricing, inspect subscription pages, or poll balances between every clip. If the visible price differs or is unclear, resolve it before submitting.
 
-Everything else you decide and do yourself. Don't send progress questions like "shall I continue?".
+### Fast browser entry
+
+Prepare and save all five complete prompts before opening the composer. Enter each prompt using one supported `fill` or clipboard-paste operation; do not simulate typing character by character. Use typing only when the editor does not support direct fill/paste. Read back the entered text once before submission. Upload the six assets once, reuse them for each endpoint pair, and submit each job once. Queue independent jobs when the UI supports it, record job IDs immediately, and use bounded waits instead of repeated checks.
+
+For a trusted local checkout, users may optionally enable the app's file, browser and command permissions (or full access) to reduce tool prompts. Explain that these permissions do not provide Google sign-in, credits or legal consent. Never enable broad permissions yourself, suggest disabling safety controls, or make full access a requirement if narrower permissions suffice.
 
 ### 5. Hand over
 
@@ -51,4 +46,4 @@ When the final video passes the checks in `WORKFLOW.md`, reply with:
 - Length, format, and credits used
 - One line: "Want any clip changed? Tell me which one and what."
 
-If they ask for a change, redo only that clip (within the budget, with their OK on the cost), then assemble a new final video under a new filename.
+If they ask for a change, redo only that clip (within the remaining authorized budget; ask only if additional credits are needed), then assemble a new final video under a new filename.
