@@ -42,5 +42,9 @@
   "storey_count_source": "project_final_design",
   "temporary_extra_storeys_allowed": false,
   "visual_review_sample_interval_seconds": 1,
-  "on_architecture_violation": "reject_clip_and_retry_within_remaining_credit_cap_or_report_blocker"
+  "on_architecture_violation": "reject_clip_and_retry_within_remaining_credit_cap_or_report_blocker",
+  "new_project_initial_questions_required": true,
+  "wait_for_initial_answers": true,
+  "complete_initial_brief_requires_confirmation": true,
+  "resume_reuses_saved_answers": true
 }

@@ -8,6 +8,8 @@ Use an available image-generation/editing backend, authenticated Google Flow bro
 
 ## 1. Record the brief
 
+For every new video, first ask the initial questions in AGENTS.md and wait for answers. Summarize details already supplied and ask only for missing ones; if the brief is complete, confirm it once before generation. Saved defaults do not bypass this initial exchange. Resume requests reuse saved answers.
+
 Save a project manifest containing:
 - Setting, before condition, finished house design and pool location if applicable.
 - Aspect ratio: 9:16 portrait or 16:9 landscape. Choose before generating images.

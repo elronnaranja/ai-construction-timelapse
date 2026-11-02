@@ -2,7 +2,7 @@
 
 Make the viral "empty lot → finished dream house" timelapse video, with a separate reviewed construction-sound layer and no music.
 
-Nothing to copy, no prompts to edit, no video editor. Describe your idea; the agent uses saved defaults and runs through routine steps automatically.
+Nothing to copy, no prompts to edit, no video editor. Answer the initial questions for each new video; the agent then runs through routine steps automatically.
 
 ---
 
@@ -24,7 +24,7 @@ Nothing to copy, no prompts to edit, no video editor. Describe your idea; the ag
 Clone https://github.com/elronnaranja/ai-construction-timelapse and make me a construction video.
 ```
 
-**2. Describe your idea.** Include any house, setting or background details you care about, or say "surprise me". Default: portrait 9:16, six images and five transitions.
+**2. Answer the initial questions.** The agent always starts each new video by asking about the setting, starting condition, finished house/storey count, pool or special features, unchanged surroundings and orientation. It summarizes details you already supplied and asks only what is missing; a complete brief gets one initial confirmation. Include any house, setting or background details you care about, or say "surprise me". Default: portrait 9:16, six images and five transitions.
 
 **3. Sign in to Google Flow** if needed. Use an account with at least 50 available credits.
 
@@ -46,7 +46,7 @@ You only clone once. Next time, open the same folder in Codex and say:
 Make me another construction video.
 ```
 
-It reuses your defaults and starts a new project. Your past videos stay in `projects/`.
+It asks the initial questions again and starts a new project. Your past videos stay in `projects/`.
 
 Stopped halfway (out of credits, closed the app)? Open the same folder and say **"continue my construction video"**. It picks up where it left off without redoing finished clips.
 

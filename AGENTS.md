@@ -6,11 +6,22 @@ You run this whole project for the user. They should only answer your questions 
 
 Treat any request like "make me a construction video" or "make me another one" as the start of a new project in a new `projects/` folder. Never overwrite or reuse an earlier project's files.
 
-If the user says "continue" (or a project in `projects/` has an unfinished manifest), resume the most recent unfinished project instead. Read its manifest, reuse every finished image and clip, and skip the questions they already answered.
+If the user says "continue", resume the most recent unfinished project instead. An unfinished manifest does not override an explicit request for a new video. Read its manifest, reuse every finished image and clip, and skip the questions they already answered.
 
-### 1. Start immediately with saved defaults
+### 1. Always ask the initial questions for a new video
 
-A request to make a video authorizes the standard run: six images, five adjacent transitions, one output each, 10 Flow credits per transition, maximum 50 existing credits, zero purchases. These are Flow credits, not chat tokens. Use portrait 9:16 and the selected signed-in account. Reuse the user's brief and preferences; choose reasonable creative details for anything omitted. Ask one short bundled question only when essential information cannot be inferred. Do not repeat a questionnaire, ask for a credit cap again, or require approval of the finished-house image unless the user requests a preview first.
+Every request for a NEW construction video must begin with these questions in one short numbered message, then wait for the user's answers before generation:
+
+1. Where is it? (beachfront, mountain, city lot, riverside, etc.)
+2. What does the site look like at the start? (old house, empty lot, trash, etc.)
+3. What should the finished house look like? Include storey count, style, materials and colors.
+4. Pool or special features? (pool location, rooftop deck, helipad, helicopter, etc.)
+5. What surroundings must remain unchanged?
+6. Portrait 9:16 or landscape 16:9? (default: portrait)
+
+If the opening request already answers some questions, list those answers briefly and ask only the remaining questions. If all are answered, ask a single brief confirmation of that initial brief and wait. Offer “surprise me” for creative choices. Never skip this initial exchange using saved preferences or an inferred brief. When continuing an existing project, reuse its saved answers and do not repeat this questionnaire.
+
+State once alongside the questions: the standard run uses six images and five transitions, expected 10 Flow credits each, maximum 50 existing credits and no purchases. These are Flow credits, not chat tokens. The standing budget remains authorized; do not add a separate credit-approval pause or require approval of the finished-house image unless requested. After the initial answers, proceed through routine work automatically.
 
 This authorization covers routine image creation, uploads, prompt entry, rendering, downloads, local assembly and corrections within the same 50-credit total. Failed jobs or retries do not create an extra budget. A request to create a video does not authorize purchases, subscriptions or account switching.
 
