@@ -37,5 +37,10 @@
   "flow_sound_instruction_case": "ALL_CAPS",
   "flow_sound_instruction": "SOUND: NATURAL, SCENE-MATCHED CONSTRUCTION SOUNDS ONLY: TOOLS, MACHINERY, FOOTSTEPS, MATERIAL HANDLING, AND WATER WHERE VISIBLY APPROPRIATE. INCLUDE HELICOPTER ROTOR SOUND ONLY WHEN A HELICOPTER IS PRESENT. NO BACKGROUND MUSIC, MUSICAL SCORE, SOUNDTRACK, BEAT, SINGING, NARRATION, VOICEOVER, OR DIALOGUE. NO TV STATIC, RADIO INTERFERENCE, ELECTRONIC BUZZING, GLITCH NOISE, HARSH HISS, CRACKLING, CLIPPING, OR DISTORTED AUDIO. KEEP EFFECTS CLEAR, NATURAL, AND SYNCHRONIZED WITH VISIBLE ACTION. DO NOT ADD MUSIC AT ANY POINT.",
   "final_delivery": "actual_exported_mp4_embedded_in_chat_with_download_link",
-  "html_preview_is_final_delivery": false
+  "html_preview_is_final_delivery": false,
+  "architecture_lock_required": true,
+  "storey_count_source": "project_final_design",
+  "temporary_extra_storeys_allowed": false,
+  "visual_review_sample_interval_seconds": 1,
+  "on_architecture_violation": "reject_clip_and_retry_within_remaining_credit_cap_or_report_blocker"
 }

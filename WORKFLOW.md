@@ -12,6 +12,7 @@ Save a project manifest containing:
 - Setting, before condition, finished house design and pool location if applicable.
 - Aspect ratio: 9:16 portrait or 16:9 landscape. Choose before generating images.
 - Fixed camera and background areas that must remain unchanged.
+- Architecture lock: final storey count, floor elevations, maximum roof height, footprint, roof form and major openings. Explicitly distinguish a rooftop deck, railing or helipad from an additional enclosed storey.
 - Audio mode: `construction_sfx_no_music`.
 - Selected Flow account, existing-credit cap and cash budget; cash defaults to zero.
 - Ordered assets, exact prompts, submitted jobs, downloaded clips and current status.
@@ -30,6 +31,8 @@ Use that image to fix the camera, property outline, architecture and pool positi
 5. Exterior and grounds finishing.
 6. Completed house.
 
+Lock the final design before deriving stages. For a two-storey design, every structural and finishing image must show only the ground floor and one upper floor; earlier stages may contain fewer completed floors, never more. Match floor elevations and roof height to image 06. Do not add temporary floors, stacked rooms, rooftop apartments or extra slabs above the final roof. Scaffolding must be visually distinct from permanent construction. Reject inconsistent keyframes before spending credits.
+
 Use the previous stage plus the completed reference where supported. Change only the work area. Check all six images for camera, footprint and background consistency before spending video credits. Correct major geometry changes; minor texture differences alone do not require regeneration.
 
 ## 3. Animate five adjacent pairs in Flow
@@ -39,6 +42,12 @@ Upload the six images once. Use **Frames**, the chosen aspect ratio, one output 
 Submit exactly five pairs: **01→02, 02→03, 03→04, 04→05, 05→06**. Each prompt combines a short phase-specific action with this common instruction. Keep the entire SOUND block and any phase-specific sound instructions in ALL CAPS, including the ending instruction:
 
 > Fixed camera matching the supplied start and end frames. No pan, tilt, zoom, shake, cuts or reframing. Preserve the property footprint, house geometry and specified surroundings. Show only the workers, tools and activity needed for this construction phase, with continuous plausible accelerated work. No unrelated objects, vehicles, people, text or subtitles. **SOUND: NATURAL, SCENE-MATCHED CONSTRUCTION SOUNDS ONLY: TOOLS, MACHINERY, FOOTSTEPS, MATERIAL HANDLING, AND WATER WHERE VISIBLY APPROPRIATE. INCLUDE HELICOPTER ROTOR SOUND ONLY WHEN A HELICOPTER IS PRESENT. NO BACKGROUND MUSIC, MUSICAL SCORE, SOUNDTRACK, BEAT, SINGING, NARRATION, VOICEOVER, OR DIALOGUE. NO TV STATIC, RADIO INTERFERENCE, ELECTRONIC BUZZING, GLITCH NOISE, HARSH HISS, CRACKLING, CLIPPING, OR DISTORTED AUDIO. KEEP EFFECTS CLEAR, NATURAL, AND SYNCHRONIZED WITH VISIBLE ACTION. DO NOT ADD MUSIC AT ANY POINT.** End exactly on the supplied endpoint.
+
+Append this architecture instruction to **every** clip, replacing placeholders from the manifest:
+
+> ARCHITECTURE LOCK: THE FINISHED HOUSE HAS EXACTLY {STOREY_COUNT} STOREYS: {FLOOR_DESCRIPTION}. USE THE SAME FOOTPRINT, FLOOR ELEVATIONS AND MAXIMUM ROOF HEIGHT AS THE COMPLETED REFERENCE. NEVER CONSTRUCT AN EXTRA STOREY, TEMPORARY FLOOR, ROOFTOP ROOM OR ADDITIONAL ROOF SLAB. BUILD ONLY THE STRUCTURE NEEDED FOR THIS PHASE, PROGRESSING TOWARD THE END FRAME. NO FLOOR MAY APPEAR AND THEN BE DEMOLISHED, SHRINK, MELT OR DISAPPEAR TO MATCH THE ENDING. A ROOFTOP DECK OR HELIPAD IS NOT AN EXTRA ENCLOSED STOREY.
+
+For two storeys use `STOREY_COUNT = TWO` and `FLOOR_DESCRIPTION = GROUND FLOOR PLUS ONE UPPER FLOOR`. Do not infer extra floors from tall scaffolding. Phase actions must name the allowed work, e.g. “install the roof directly above the existing upper floor,” rather than a vague “keep building upward.”
 
 Add to the final clip:
 
@@ -56,7 +65,7 @@ Listen to every SFX track against its corresponding clip. Confirm no music, sing
 
 Copy `audio-review.example.json` into the project. After actual listening, fill in the reviewer, the SHA-256 of each source clip and SFX file, rights, and the three pass flags. Review covers all five pairs in order; changed files invalidate it. Use `shasum -a 256 <file>` to obtain a hash. Never copy pass flags from another project or approve unplayed audio.
 
-Check each clip's opening, middle and ending for unrelated objects, major geometry changes or unfinished work. Registered reference overlays may fix protected static backgrounds, but must stay outside the work area. Preserve the separately approved SFX in every visual correction; never remap Flow audio back into the final file.
+Inspect a contact sheet sampled at least once per second across every clip, plus its opening and ending. Count visible storeys and compare floor lines and roof height with image 06; inspect suspect intervals more closely. A correct endpoint does not excuse a temporary third storey. Reject any clip that adds and removes floors, exceeds the final building height, or contains major geometry changes or unrelated objects. Do not hide the error with a final still. Regenerate only the affected clip within the remaining credit cap; if there is no budget, save status `visual_review_failed` and report the blocker instead of claiming completion. Registered reference overlays may fix protected static backgrounds, but must stay outside the work area. Preserve the separately approved SFX in every visual correction; never remap Flow audio back into the final file.
 
 ## 5. Assemble and verify
 
@@ -76,6 +85,7 @@ Listen to the assembled final too, including joins and the ending. Do not delive
 Acceptance checks:
 - Correct aspect ratio; full house and pool visible without stretching.
 - Separate reviewed construction effects present; no audible music or speech; Flow audio excluded.
+- Storey count and architecture remain within the final design throughout every clip; no extra floor appears and disappears.
 - Completed final frame matches image 06, with no remaining construction work.
 - Required surroundings preserved; no unrelated generated content.
 - Full video decode succeeds and the audio stream exists.

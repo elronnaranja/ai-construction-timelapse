@@ -24,6 +24,8 @@ This authorization covers routine image creation, uploads, prompt entry, renderi
 
 Follow `WORKFLOW.md` exactly: manifest, finished house first, six images with your built-in image generator, five Flow clips in Frames mode, sound and picture review, then `assemble.py`. Keep natural construction sounds; no music, singing, narration or dialogue. Flow audio must never enter the final video. Prepare five separate music-free scene-effect tracks and obtain actual listening review with hashes/rights before assembly. If you cannot listen, do not approve audio or hand over a final video as finished; save status `audio_review_pending` and request a reviewer. See WORKFLOW.md and audio-review.example.json.
 
+Lock the finished house's storey count, floor elevations and roof height across all images and clips. Use WORKFLOW.md's architecture block in every Flow prompt. For two storeys, never build a temporary third floor. Inspect every clip at least once per second; extra floors appearing and disappearing fail visual review even if the ending is correct. Regenerate only within the remaining credit budget, otherwise report the blocker.
+
 ### 4. Stop only for a real blocker
 
 - Missing login, unavailable tools, insufficient credits, a changed price/settings combination, or a correction that would exceed the 50-credit cap. Save progress and ask only for the decision needed.

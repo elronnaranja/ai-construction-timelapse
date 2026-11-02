@@ -81,3 +81,5 @@ Flow can ignore “no music” prompts. This workflow therefore never uses its a
 This requires clean effects and an actual listener. An audio stream or speech detector cannot prove music is absent. If listening isn't available to the agent, a reviewer must approve the tracks and final mix before delivery. Music-free output cannot be certified by prompts alone.
 
 All Flow SOUND instructions use ALL CAPS and explicitly exclude TV static, buzzing and distorted audio in addition to music. Prompt wording remains advisory; the separate reviewed sound layer remains required.
+
+The final design locks the storey count and roof height for every stage. A two-storey house must never grow a temporary third floor and remove it later. Intermediate frames are checked throughout each clip; architecture violations fail visual review even when the final frame looks correct.
