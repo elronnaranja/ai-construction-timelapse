@@ -36,13 +36,13 @@ Use the previous stage plus the completed reference where supported. Change only
 
 Upload the six images once. Use **Frames**, the chosen aspect ratio, one output per job, and an economical model supporting both endpoints. Our tested setting was Veo 3.1 Lite, 720p, 8 seconds, 10 credits per output; use this preset and read its visible cost once when configuring the project. Proceed under the standing 50-credit authorization if it shows 10 per output. If the cost differs or is unclear, resolve that before spending; never assume pricing cannot change.
 
-Submit exactly five pairs: **01→02, 02→03, 03→04, 04→05, 05→06**. Each prompt combines a short phase-specific action with this common instruction:
+Submit exactly five pairs: **01→02, 02→03, 03→04, 04→05, 05→06**. Each prompt combines a short phase-specific action with this common instruction. Keep the entire SOUND block and any phase-specific sound instructions in ALL CAPS, including the ending instruction:
 
-> Fixed camera matching the supplied start and end frames. No pan, tilt, zoom, shake, cuts or reframing. Preserve the property footprint, house geometry and specified surroundings. Show only the workers, tools and activity needed for this construction phase, with continuous plausible accelerated work. No unrelated objects, vehicles, people, text or subtitles. **AUDIO: natural construction sounds only—tools, machinery, footsteps, material handling and water where visibly appropriate. NO background music, musical score, soundtrack, beat, singing, narration, voiceover or dialogue. Do not add music at any point.** End exactly on the supplied endpoint.
+> Fixed camera matching the supplied start and end frames. No pan, tilt, zoom, shake, cuts or reframing. Preserve the property footprint, house geometry and specified surroundings. Show only the workers, tools and activity needed for this construction phase, with continuous plausible accelerated work. No unrelated objects, vehicles, people, text or subtitles. **SOUND: NATURAL, SCENE-MATCHED CONSTRUCTION SOUNDS ONLY: TOOLS, MACHINERY, FOOTSTEPS, MATERIAL HANDLING, AND WATER WHERE VISIBLY APPROPRIATE. INCLUDE HELICOPTER ROTOR SOUND ONLY WHEN A HELICOPTER IS PRESENT. NO BACKGROUND MUSIC, MUSICAL SCORE, SOUNDTRACK, BEAT, SINGING, NARRATION, VOICEOVER, OR DIALOGUE. NO TV STATIC, RADIO INTERFERENCE, ELECTRONIC BUZZING, GLITCH NOISE, HARSH HISS, CRACKLING, CLIPPING, OR DISTORTED AUDIO. KEEP EFFECTS CLEAR, NATURAL, AND SYNCHRONIZED WITH VISIBLE ACTION. DO NOT ADD MUSIC AT ANY POINT.** End exactly on the supplied endpoint.
 
 Add to the final clip:
 
-> Complete all work before the ending. Remove every worker, scaffold, tool, bucket, material stack and piece of debris from the property. Finish the pool, deck, landscaping and furnishings. Final two seconds show only the fully completed property. Construction sounds subside as work ends; no music or speech.
+> Complete all work before the ending. Remove every worker, scaffold, tool, bucket, material stack and piece of debris from the property. Finish the pool, deck, landscaping and furnishings. Final two seconds show only the fully completed property. SOUND: CONSTRUCTION SOUNDS SUBSIDE AS WORK ENDS. KEEP ONLY APPROPRIATE NATURAL AMBIENCE. NO MUSIC, SPEECH, STATIC, BUZZING, OR DISTORTION.
 
 Save all five prompts in the project first. Enter each complete prompt with one supported fill/paste operation, not character-by-character typing; read it back once. Upload assets once and reuse them. Queue independent jobs if supported without duplicating submissions. Record each submission once. Do not repeat Generate while a job is pending. Download original completed clips. Stop on exhausted credits; do not buy more or silently change the agreed settings.
 
@@ -52,7 +52,7 @@ Save all five prompts in the project first. Enter each complete prompt with one 
 
 Prepare five separate scene-effect tracks: demolition/tools, assembly, finishing, water, footsteps, and any explicitly requested helicopter or machinery. Use owned or appropriately licensed recordings, or isolated SFX generated without music. Never add a music bed. Avoid recurring melodic or beat-like loops.
 
-Listen to every SFX track against its corresponding clip. Confirm no music, singing, speech or unrelated sounds, and record usage rights. If the agent cannot listen, it must not mark the review as passed: request listening review or stop with status `audio_review_pending`. Speech recognition, metadata, a successful decode or a music classifier alone is not listening approval. Do not mute the video and call that fixed.
+Listen to every SFX track against its corresponding clip. Confirm no music, singing, speech, TV-like static, electronic buzzing, clipping, distortion or unrelated sounds, and record usage rights. If the agent cannot listen, it must not mark the review as passed: request listening review or stop with status `audio_review_pending`. Speech recognition, metadata, a successful decode or a music classifier alone is not listening approval. Do not mute the video and call that fixed.
 
 Copy `audio-review.example.json` into the project. After actual listening, fill in the reviewer, the SHA-256 of each source clip and SFX file, rights, and the three pass flags. Review covers all five pairs in order; changed files invalidate it. Use `shasum -a 256 <file>` to obtain a hash. Never copy pass flags from another project or approve unplayed audio.
 
@@ -81,3 +81,7 @@ Acceptance checks:
 - Full video decode succeeds and the audio stream exists.
 
 Save final MP4, six images, five original clips, exact prompts, manifest, Flow link and actual credits used. Report material remaining defects. Account usage percentages, if recorded, are rounded account-wide readings rather than precise project token counts.
+
+## 6. Deliver the actual export in chat
+
+After acceptance checks pass, export the actual final MP4 and embed/attach that video in the final chat response. In Codex desktop use `![Final construction video](/absolute/path/to/final.mp4)` with the real absolute file path, and include a download link to the same MP4. In another client use its supported native video attachment. An HTML player, preview page, storyboard, screenshot, folder opening or Flow project link is not the final deliverable. Do not stop at an HTML preview before export. If the client cannot attach or play video, provide the actual MP4 download link and state that limitation. Never label an unreviewed draft as final.

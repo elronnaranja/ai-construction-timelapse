@@ -12,7 +12,10 @@
     "narration",
     "voiceover",
     "dialogue",
-    "unrelated sounds"
+    "unrelated sounds",
+    "TV static or radio interference",
+    "electronic buzzing or glitch noise",
+    "harsh hiss, crackling, clipping or distorted audio"
   ],
   "silent_by_default": false,
   "ending": "fully finished property with a two-second completed-image hold",
@@ -30,5 +33,9 @@
   "hero_user_approval_required": false,
   "prompt_entry": "single_fill_or_paste",
   "pricing_check": "visible_project_settings_once",
-  "ask_only_for_blockers": true
+  "ask_only_for_blockers": true,
+  "flow_sound_instruction_case": "ALL_CAPS",
+  "flow_sound_instruction": "SOUND: NATURAL, SCENE-MATCHED CONSTRUCTION SOUNDS ONLY: TOOLS, MACHINERY, FOOTSTEPS, MATERIAL HANDLING, AND WATER WHERE VISIBLY APPROPRIATE. INCLUDE HELICOPTER ROTOR SOUND ONLY WHEN A HELICOPTER IS PRESENT. NO BACKGROUND MUSIC, MUSICAL SCORE, SOUNDTRACK, BEAT, SINGING, NARRATION, VOICEOVER, OR DIALOGUE. NO TV STATIC, RADIO INTERFERENCE, ELECTRONIC BUZZING, GLITCH NOISE, HARSH HISS, CRACKLING, CLIPPING, OR DISTORTED AUDIO. KEEP EFFECTS CLEAR, NATURAL, AND SYNCHRONIZED WITH VISIBLE ACTION. DO NOT ADD MUSIC AT ANY POINT.",
+  "final_delivery": "actual_exported_mp4_embedded_in_chat_with_download_link",
+  "html_preview_is_final_delivery": false
 }

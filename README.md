@@ -30,7 +30,7 @@ Clone https://github.com/elronnaranja/ai-construction-timelapse and make me a co
 
 **4. Let the agent run.** Your request authorizes up to 50 existing credits: five transitions × 10 credits, one output each, no purchases. It checks the expected visible setting once and proceeds without repeated cost or design approvals. Prompts are prepared in advance and entered with a single fill/paste each. It stops only for a real blocker, required new legal consent, or unavailable audio listening review.
 
-**5. Get your video.** The agent creates images and clips, adds separately reviewed construction effects, checks picture and sound, and assembles `final.mp4`.
+**5. Get your video.** The agent creates images and clips, adds separately reviewed construction effects, checks picture and sound, and assembles `final.mp4`. The actual exported MP4 is embedded/attached in the final chat with a download link; an HTML preview is not the final delivery.
 
 Optional: on a trusted checkout, allow file, browser and command access in your agent app to reduce permission prompts. Full access is optional; it does not replace Google login or required consent. Codex and Claude use their own permission settings.
 
@@ -79,3 +79,5 @@ Stopped halfway (out of credits, closed the app)? Open the same folder and say *
 Flow can ignore “no music” prompts. This workflow therefore never uses its audio. Five separately sourced construction/scene-effect tracks must pass a listening review before the assembler will run. Missing approval or changed files block delivery. There is no “keep raw audio” fallback and no automatic mute-everything shortcut.
 
 This requires clean effects and an actual listener. An audio stream or speech detector cannot prove music is absent. If listening isn't available to the agent, a reviewer must approve the tracks and final mix before delivery. Music-free output cannot be certified by prompts alone.
+
+All Flow SOUND instructions use ALL CAPS and explicitly exclude TV static, buzzing and distorted audio in addition to music. Prompt wording remains advisory; the separate reviewed sound layer remains required.
