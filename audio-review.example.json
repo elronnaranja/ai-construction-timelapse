@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "method": "listening",
+  "reviewed_by": "",
+  "tracks": [
+    {"clip_sha256": "", "sfx_sha256": "", "music_free": false, "speech_free": false, "scene_appropriate": false, "rights": ""},
+    {"clip_sha256": "", "sfx_sha256": "", "music_free": false, "speech_free": false, "scene_appropriate": false, "rights": ""},
+    {"clip_sha256": "", "sfx_sha256": "", "music_free": false, "speech_free": false, "scene_appropriate": false, "rights": ""},
+    {"clip_sha256": "", "sfx_sha256": "", "music_free": false, "speech_free": false, "scene_appropriate": false, "rights": ""},
+    {"clip_sha256": "", "sfx_sha256": "", "music_free": false, "speech_free": false, "scene_appropriate": false, "rights": ""}
+  ]
+}

@@ -30,7 +30,7 @@ Tell them they can just say "surprise me" for 1–5. Then pick a strong idea you
 
 ### 3. Run WORKFLOW.md end to end
 
-Follow `WORKFLOW.md` exactly: manifest, finished house first, six images with your built-in image generator, five Flow clips in Frames mode, sound and picture review, then `assemble.py`. Keep natural construction sounds; no music, singing, narration or dialogue. Make sure every clip and the final video have their construction sound.
+Follow `WORKFLOW.md` exactly: manifest, finished house first, six images with your built-in image generator, five Flow clips in Frames mode, sound and picture review, then `assemble.py`. Keep natural construction sounds; no music, singing, narration or dialogue. Flow audio must never enter the final video. Prepare five separate music-free scene-effect tracks and obtain actual listening review with hashes/rights before assembly. If you cannot listen, do not approve audio or hand over a final video as finished; save status `audio_review_pending` and request a reviewer. See WORKFLOW.md and audio-review.example.json.
 
 ### 4. The only times you stop
 

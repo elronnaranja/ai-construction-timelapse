@@ -46,23 +46,36 @@ Add to the final clip:
 
 Record each submission once. Do not repeat Generate while a job is pending. Download original completed clips. Stop on exhausted credits; do not buy more or silently change the agreed settings.
 
-## 4. Review sound and picture
+## 4. Build a separate music-free sound layer
 
-**Listen to every clip.** Confirm construction sounds are present and relevant, and no music, singing, narration or dialogue is audible. Prompts cannot guarantee this. Speech detection alone does not verify absence of music.
+**Never use Flow's audio in the deliverable.** It can contain music even when the prompt forbids it. Flow supplies visuals only; strengthening the prompt or checking that an audio stream exists does not solve this.
 
-If a clip contains music, preserve the good construction audio elsewhere. Replace only the affected segment with reviewed, appropriately licensed construction effects, use an available separation tool and listen for artifacts, or regenerate within the approved budget. Do not mute the entire video as a shortcut. If a satisfactory repair is unavailable, report the specific clip and leave it pending.
+Prepare five separate scene-effect tracks: demolition/tools, assembly, finishing, water, footsteps, and any explicitly requested helicopter or machinery. Use owned or appropriately licensed recordings, or isolated SFX generated without music. Never add a music bed. Avoid recurring melodic or beat-like loops.
 
-Check each clip's opening, middle and ending. Reject unrelated objects, major geometry changes or an unfinished final property. For protected static backgrounds, a registered reference overlay can remove artifacts without rerendering; keep it outside the work area and inspect for seams. **Retain the audio when applying visual fixes.** Project-specific masks must be measured again for each scene.
+Listen to every SFX track against its corresponding clip. Confirm no music, singing, speech or unrelated sounds, and record usage rights. If the agent cannot listen, it must not mark the review as passed: request listening review or stop with status `audio_review_pending`. Speech recognition, metadata, a successful decode or a music classifier alone is not listening approval. Do not mute the video and call that fixed.
+
+Copy `audio-review.example.json` into the project. After actual listening, fill in the reviewer, the SHA-256 of each source clip and SFX file, rights, and the three pass flags. Review covers all five pairs in order; changed files invalidate it. Use `shasum -a 256 <file>` to obtain a hash. Never copy pass flags from another project or approve unplayed audio.
+
+Check each clip's opening, middle and ending for unrelated objects, major geometry changes or unfinished work. Registered reference overlays may fix protected static backgrounds, but must stay outside the work area. Preserve the separately approved SFX in every visual correction; never remap Flow audio back into the final file.
 
 ## 5. Assemble and verify
 
-After audio review, run `assemble.py --clips <five ordered clips> --hero <approved image 06> --output <new MP4> --aspect 9:16` (or 16:9).
+Run after listening approval:
 
-The script retains and normalizes existing audio, handles clips without audio, fades the final construction sounds, and adds a two-second finished-image hold. It does **not** remove music; do the audio review first. Never use the legacy silent assembler for normal delivery.
+```sh
+python3 assemble.py --clips clip01.mp4 clip02.mp4 clip03.mp4 clip04.mp4 clip05.mp4 \
+  --sfx-tracks sfx01.wav sfx02.wav sfx03.wav sfx04.wav sfx05.wav \
+  --audio-review audio-review.json --hero 06-completed.png \
+  --output final.mp4 --aspect 9:16
+```
+
+The assembler always ignores Flow audio. It uses only the five separate reviewed SFX tracks, normalizes frame rate and geometry, fades effects at the ending, and adds a two-second completed-image hold. Missing or failed review, missing effects, or changed clip/SFX hashes block rendering. There is no raw-Flow-audio fallback. Keep SFX and the review file with the project when handing off between Codex and Claude.
+
+Listen to the assembled final too, including joins and the ending. Do not deliver a file as music-free until it passes. This is a delivery safeguard, not a guarantee that Flow will stop generating music or that a false human review can be detected automatically.
 
 Acceptance checks:
 - Correct aspect ratio; full house and pool visible without stretching.
-- Relevant construction effects retained; no audible music or speech.
+- Separate reviewed construction effects present; no audible music or speech; Flow audio excluded.
 - Completed final frame matches image 06, with no remaining construction work.
 - Required surroundings preserved; no unrelated generated content.
 - Full video decode succeeds and the audio stream exists.

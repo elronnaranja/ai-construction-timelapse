@@ -1,6 +1,6 @@
 # AI Construction Timelapse — ChatGPT Makes the Whole Video
 
-Make the viral "empty lot → finished dream house" timelapse video, with real construction sounds and no music.
+Make the viral "empty lot → finished dream house" timelapse video, with a separate reviewed construction-sound layer and no music.
 
 Nothing to copy, no prompts to edit, no video editor. You answer a few questions and get the final video.
 
@@ -33,7 +33,7 @@ Clone https://github.com/elronnaranja/ai-construction-timelapse and make me a co
 - the credit cost, before it spends anything
 - anything Flow asks you to accept
 
-**5. Get your video.** Codex makes the images, makes the clips in Flow, checks the sound and picture, joins everything and opens the folder with `final.mp4`.
+**5. Get your video.** Codex makes the images and Flow clips, prepares separate construction effects, checks sound and picture, then assembles `final.mp4`. If audio cannot be listened to and approved, it stops for review instead of delivering an unchecked file.
 
 Want a clip changed? Tell Codex which clip and what. It redoes only that one.
 
@@ -69,7 +69,14 @@ Stopped halfway (out of credits, closed the app)? Open the same folder and say *
 |---|---|
 | `AGENTS.md` | Tells Codex what to ask you and how to run everything |
 | `WORKFLOW.md` | The full step-by-step production instructions |
-| `assemble.py` | Joins the clips and keeps the construction sound |
+| `assemble.py` | Joins Flow visuals with separate reviewed effects; never uses Flow audio |
+| `audio-review.example.json` | Required listening review with clip/SFX hashes and usage rights |
 | `preferences.json` | Defaults: construction sounds on, no music |
 | `CLAUDE.md`, `START-HERE.md` | Same workflow for Claude Code |
 | `archive/assemble_silent.py` | Old silent version. Only if you want no sound |
+
+## Why Flow music cannot leak into assembly
+
+Flow can ignore “no music” prompts. This workflow therefore never uses its audio. Five separately sourced construction/scene-effect tracks must pass a listening review before the assembler will run. Missing approval or changed files block delivery. There is no “keep raw audio” fallback and no automatic mute-everything shortcut.
+
+This requires clean effects and an actual listener. An audio stream or speech detector cannot prove music is absent. If listening isn't available to the agent, a reviewer must approve the tracks and final mix before delivery. Music-free output cannot be certified by prompts alone.

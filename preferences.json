@@ -16,5 +16,10 @@
   ],
   "silent_by_default": false,
   "ending": "fully finished property with a two-second completed-image hold",
-  "cash_budget_default": 0
+  "cash_budget_default": 0,
+  "audio_source": "separate_reviewed_sfx_only",
+  "flow_audio_allowed": false,
+  "audio_review_required": true,
+  "on_unreviewed_audio": "block_delivery",
+  "on_missing_sfx": "block_assembly"
 }
