@@ -65,30 +65,26 @@ Save all five prompts in the project first. Enter each complete prompt with one 
 
 Prepare five separate scene-effect tracks: demolition/tools, assembly, finishing, water, footsteps, and any explicitly requested helicopter or machinery. Use owned or appropriately licensed recordings, or isolated SFX generated without music. Never add a music bed. Avoid recurring melodic or beat-like loops.
 
-Listen to every SFX track against its corresponding clip. Confirm no music, singing, speech, TV-like static, electronic buzzing, clipping, distortion or unrelated sounds, and record usage rights. If the agent cannot listen, it must not mark the review as passed: request listening review or stop with status `audio_review_pending`. Speech recognition, metadata, a successful decode or a music classifier alone is not listening approval. Do not mute the video and call that fixed.
+Choose isolated scene effects from owned or appropriately licensed sources and record their source and usage rights in the manifest. Do not use music tracks or extract audio from Flow clips. Automatically combine the five effects tracks with the five visual clips; no listening review, reviewer signature, review JSON or user approval is required. Missing or corrupt effects are a technical blocker, not a request for listening approval. Automated checks verify separation, audio presence and decode integrity; they do not prove that a mislabeled third-party effect contains no music.
 
-Copy `audio-review.example.json` into the project. After actual listening, fill in the reviewer, the SHA-256 of each source clip and SFX file, rights, and the three pass flags. Review covers all five pairs in order; changed files invalidate it. Use `shasum -a 256 <file>` to obtain a hash. Never copy pass flags from another project or approve unplayed audio.
-
-Inspect a contact sheet sampled at least once per second across every clip, plus its opening and ending. Count visible storeys and compare floor lines and roof height with image 06; inspect suspect intervals more closely. A correct endpoint does not excuse a temporary third storey. Reject any clip that adds and removes floors, exceeds the final building height, or contains major geometry changes or unrelated objects. Do not hide the error with a final still. Regenerate only the affected clip within the remaining credit cap; if there is no budget, save status `visual_review_failed` and report the blocker instead of claiming completion. Registered reference overlays may fix protected static backgrounds, but must stay outside the work area. Preserve the separately approved SFX in every visual correction; never remap Flow audio back into the final file.
+Inspect a contact sheet sampled at least once per second across every clip, plus its opening and ending. Count visible storeys and compare floor lines and roof height with image 06; inspect suspect intervals more closely. A correct endpoint does not excuse a temporary third storey. Reject any clip that adds and removes floors, exceeds the final building height, or contains major geometry changes or unrelated objects. Do not hide the error with a final still. Regenerate only the affected clip within the remaining credit cap; if there is no budget, save status `visual_review_failed` and report the blocker instead of claiming completion. Registered reference overlays may fix protected static backgrounds, but must stay outside the work area. Preserve the separate SFX in every visual correction; never remap Flow audio back into the final file.
 
 ## 5. Assemble and verify
 
-Run after listening approval:
+Run automatically once the clips and effects are ready:
 
 ```sh
 python3 assemble.py --clips clip01.mp4 clip02.mp4 clip03.mp4 clip04.mp4 clip05.mp4 \
   --sfx-tracks sfx01.wav sfx02.wav sfx03.wav sfx04.wav sfx05.wav \
-  --audio-review audio-review.json --hero 06-completed.png \
+  --hero 06-completed.png \
   --output final.mp4 --aspect 9:16
 ```
 
-The assembler always ignores Flow audio. It uses only the five separate reviewed SFX tracks, normalizes frame rate and geometry, fades effects at the ending, and adds a two-second completed-image hold. Missing or failed review, missing effects, or changed clip/SFX hashes block rendering. There is no raw-Flow-audio fallback. Keep SFX and the review file with the project when handing off between Codex and Claude.
-
-Listen to the assembled final too, including joins and the ending. Do not deliver a file as music-free until it passes. This is a delivery safeguard, not a guarantee that Flow will stop generating music or that a false human review can be detected automatically.
+The assembler always ignores Flow audio. It uses only the five separate SFX tracks, normalizes frame rate and geometry, fades effects at the ending and adds a two-second completed-image hold. It rejects missing effects, files without audio, corrupt audio and source clips (including byte-identical copies) passed as effects. No listening review is required. Keep effects and source/rights records with the project for handoff. Do not claim that the automatic checks are an audible music-free certification.
 
 Acceptance checks:
 - Correct aspect ratio; full house and pool visible without stretching.
-- Separate reviewed construction effects present; no audible music or speech; Flow audio excluded.
+- Separate scene-matched construction effects present; Flow audio excluded; no music or speech intentionally sourced.
 - Storey count and architecture remain within the final design throughout every clip; no extra floor appears and disappears.
 - Completed final frame matches image 06, with no remaining construction work.
 - Required surroundings preserved; no unrelated generated content.
@@ -98,4 +94,4 @@ Save final MP4, six images, five original clips, exact prompts, manifest, Flow l
 
 ## 6. Deliver the actual export in chat
 
-After acceptance checks pass, export the actual final MP4 and embed/attach that video in the final chat response. In Codex desktop use `![Final construction video](/absolute/path/to/final.mp4)` with the real absolute file path, and include a download link to the same MP4. In another client use its supported native video attachment. An HTML player, preview page, storyboard, screenshot, folder opening or Flow project link is not the final deliverable. Do not stop at an HTML preview before export. If the client cannot attach or play video, provide the actual MP4 download link and state that limitation. Never label an unreviewed draft as final.
+After acceptance checks pass, export the actual final MP4 and embed/attach that video in the final chat response. In Codex desktop use `![Final construction video](/absolute/path/to/final.mp4)` with the real absolute file path, and include a download link to the same MP4. In another client use its supported native video attachment. An HTML player, preview page, storyboard, screenshot, folder opening or Flow project link is not the final deliverable. Do not stop at an HTML preview before export. If the client cannot attach or play video, provide the actual MP4 download link and state that limitation. Deliver after automated checks and visual acceptance pass; do not wait for listening approval.

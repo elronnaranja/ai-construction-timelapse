@@ -1,6 +1,6 @@
 # AI Construction Timelapse — ChatGPT Makes the Whole Video
 
-Make the viral "empty lot → finished dream house" timelapse video, with a separate reviewed construction-sound layer and no music.
+Make the viral "empty lot → finished dream house" timelapse video, with a separate construction-sound layer and no music.
 
 Nothing to copy, no prompts to edit, no video editor. Answer the initial questions for each new video; the agent then runs through routine steps automatically.
 
@@ -30,9 +30,9 @@ Your answers apply to this video only. This initial exchange is the only planned
 
 **3. Connect the browser before generation.** Follow [BROWSER-SETUP.md](BROWSER-SETUP.md) for built-in Browser or Chrome integration setup. The agent must verify real Flow UI access and supported uploads/downloads before creating images or spending credits. A fresh install or full access alone does not establish browser control. Complete required setup/permission clicks and sign in to Flow yourself. Use an account with at least 50 available credits.
 
-**4. Let the agent run.** Your request authorizes up to 50 existing credits: five transitions × 10 credits, one output each, no purchases. It checks the expected visible setting once and proceeds without repeated cost or design approvals. Prompts are prepared in advance and entered with a single fill/paste each. It stops only for a real blocker, required new legal consent, or unavailable audio listening review.
+**4. Let the agent run.** Your request authorizes up to 50 existing credits: five transitions × 10 credits, one output each, no purchases. It checks the expected visible setting once and proceeds without repeated cost or design approvals. Prompts are prepared in advance and entered with a single fill/paste each. It stops only for a real blocker, required new legal consent.
 
-**5. Get your video.** The agent creates images and clips, adds separately reviewed construction effects, checks picture and sound, and assembles `final.mp4`. The actual exported MP4 is embedded/attached in the final chat with a download link; an HTML preview is not the final delivery.
+**5. Get your video.** The agent creates images and clips, adds separate construction effects, checks picture and sound, and assembles `final.mp4`. The actual exported MP4 is embedded/attached in the final chat with a download link; an HTML preview is not the final delivery.
 
 Optional: on a trusted checkout, allow file, browser and command access in your agent app to reduce permission prompts. Full access is optional; it does not replace Google login or required consent. Codex and Claude use their own permission settings.
 
@@ -70,18 +70,13 @@ Stopped halfway (out of credits, closed the app)? Open the same folder and say *
 |---|---|
 | `AGENTS.md` | Tells Codex what to ask you and how to run everything |
 | `WORKFLOW.md` | The full step-by-step production instructions |
-| `assemble.py` | Joins Flow visuals with separate reviewed effects; never uses Flow audio |
-| `audio-review.example.json` | Required listening review with clip/SFX hashes and usage rights |
+| `assemble.py` | Joins Flow visuals with separate effects; never uses Flow audio |
 | `preferences.json` | Defaults: construction sounds on, no music |
 | `CLAUDE.md`, `START-HERE.md` | Same workflow for Claude Code |
 | `archive/assemble_silent.py` | Old silent version. Only if you want no sound |
 
-## Why Flow music cannot leak into assembly
+## Audio assembly is automatic
 
-Flow can ignore “no music” prompts. This workflow therefore never uses its audio. Five separately sourced construction/scene-effect tracks must pass a listening review before the assembler will run. Missing approval or changed files block delivery. There is no “keep raw audio” fallback and no automatic mute-everything shortcut.
+Flow audio is never used in the export. The agent sources five separate scene-matched, appropriately licensed construction-effect tracks and automatically combines them with the visuals. There is no listening-review approval step or review JSON requirement. Audio stream, decode and source-file separation checks still run. Record effect sources/rights in the manifest; do not reuse extracted Flow audio. These checks do not detect music inside a mislabeled third-party effect.
 
-This requires clean effects and an actual listener. An audio stream or speech detector cannot prove music is absent. If listening isn't available to the agent, a reviewer must approve the tracks and final mix before delivery. Music-free output cannot be certified by prompts alone.
-
-All Flow SOUND instructions use ALL CAPS and explicitly exclude TV static, buzzing and distorted audio in addition to music. Prompt wording remains advisory; the separate reviewed sound layer remains required.
-
-The final design locks the storey count and roof height for every stage. A two-storey house must never grow a temporary third floor and remove it later. Intermediate frames are checked throughout each clip; architecture violations fail visual review even when the final frame looks correct.
+All Flow SOUND instructions remain ALL CAPS. Final delivery includes the actual exported MP4 in chat. The final design locks the storey count and roof height throughout all clips.

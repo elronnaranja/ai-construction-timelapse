@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Assemble Flow visuals with separately reviewed, music-free scene effects.
-Flow audio is never mapped into the output. No audio review means no render.
+"""Assemble Flow visuals with separate construction scene effects.
+Flow audio is never mapped into the output. Assembly is automatic; no listening approval is required.
 """
 import argparse
 import hashlib
@@ -23,34 +23,18 @@ def sha256(path):
     return digest.hexdigest()
 
 
-def validate_audio_review(clips, effects, review_path):
-    review = json.loads(review_path.read_text())
-    if review.get('version') != 1 or review.get('method') != 'listening':
-        raise ValueError('Audio review must be version 1 and based on listening')
-    if not str(review.get('reviewed_by', '')).strip():
-        raise ValueError('A named audio reviewer is required')
-    tracks = review.get('tracks', [])
-    if len(tracks) != len(clips):
-        raise ValueError('Review must cover all five clips in order')
+def validate_effects(clips, effects):
+    source_paths = {clip.resolve() for clip in clips}
     source_hashes = {sha256(clip) for clip in clips}
-    for index, (clip, effect, track) in enumerate(zip(clips, effects, tracks), 1):
-        if effect.resolve() in {c.resolve() for c in clips}:
+    for index, effect in enumerate(effects, 1):
+        if effect.resolve() in source_paths:
             raise ValueError(f'Track {index}: Flow source cannot be used as an SFX track')
-        if track.get('clip_sha256') != sha256(clip):
-            raise ValueError(f'Track {index}: source clip changed since review')
-        effect_hash = sha256(effect)
-        if effect_hash in source_hashes:
+        if sha256(effect) in source_hashes:
             raise ValueError(f'Track {index}: copied Flow source cannot be used as SFX')
-        if track.get('sfx_sha256') != effect_hash:
-            raise ValueError(f'Track {index}: SFX changed since review')
-        for field in ('music_free', 'speech_free', 'scene_appropriate'):
-            if track.get(field) is not True:
-                raise ValueError(f'Track {index}: {field} has not passed review')
-        if not str(track.get('rights', '')).strip():
-            raise ValueError(f'Track {index}: SFX usage rights must be recorded')
         if not any(s['codec_type'] == 'audio' for s in probe(effect)['streams']):
             raise ValueError(f'Track {index}: SFX file has no audio stream')
-    return review
+        subprocess.run(['ffmpeg', '-v', 'error', '-i', str(effect), '-map', '0:a:0',
+                        '-f', 'null', '-'], check=True, capture_output=True)
 
 
 def main():
@@ -59,21 +43,19 @@ def main():
     parser.add_argument('--hero', required=True, type=Path)
     parser.add_argument('--sfx-tracks', nargs=5, required=True, type=Path,
                         help='Five separate music-free effects tracks, one per clip')
-    parser.add_argument('--audio-review', required=True, type=Path,
-                        help='Listening review tied to clip and SFX SHA-256 hashes')
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--aspect', choices=['9:16', '16:9'], default='9:16')
     parser.add_argument('--hold', type=float, default=2.0)
     args = parser.parse_args()
     if not 0.5 <= args.hold <= 5:
         parser.error('--hold must be 0.5–5 seconds')
-    for path in [*args.clips, args.hero, *args.sfx_tracks, args.audio_review]:
+    for path in [*args.clips, args.hero, *args.sfx_tracks]:
         if not path.is_file():
             parser.error(f'Missing file: {path}')
     if args.output.exists():
         parser.error('Output exists; use a new filename')
     try:
-        review = validate_audio_review(args.clips, args.sfx_tracks, args.audio_review)
+        validate_effects(args.clips, args.sfx_tracks)
     except (ValueError, KeyError, TypeError) as error:
         parser.error(str(error))
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -95,7 +77,7 @@ def main():
             f'pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,'
             f'format=yuv420p,trim=duration={duration},setpts=PTS-STARTPTS[v{index}]'
         )
-        # Inputs 0–4 supply VISUALS ONLY. Inputs 6–10 are reviewed SFX.
+        # Inputs 0–4 supply VISUALS ONLY. Inputs 6–10 are separate SFX.
         audio = (f'[{index+6}:a:0]aresample=48000,'
                  'aformat=sample_fmts=fltp:channel_layouts=stereo,'
                  f'apad,atrim=duration={duration},asetpts=PTS-STARTPTS')
@@ -126,7 +108,7 @@ def main():
         raise RuntimeError('Audio was not retained')
     subprocess.run(['ffmpeg', '-v', 'error', '-i', str(args.output), '-f', 'null', '-'], check=True)
     print(json.dumps({'output': str(args.output), 'audio_streams': 1,
-                      'audio_review': 'passed listening review: ' + review['reviewed_by'],
+                      'audio_review': 'not required; automatic assembly',
                       'flow_audio_used': False,
                       'duration_seconds': float(result['format']['duration']),
                       'dimensions': [width, height], 'decode_check': 'passed'}, indent=2))

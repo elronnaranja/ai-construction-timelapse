@@ -20,10 +20,9 @@
   "silent_by_default": false,
   "ending": "fully finished property with a two-second completed-image hold",
   "cash_budget_default": 0,
-  "audio_source": "separate_reviewed_sfx_only",
+  "audio_source": "separate_sfx_only",
   "flow_audio_allowed": false,
-  "audio_review_required": true,
-  "on_unreviewed_audio": "block_delivery",
+  "audio_review_required": false,
   "on_missing_sfx": "block_assembly",
   "aspect_default": "9:16",
   "flow_credits_per_transition_expected": 10,
@@ -53,5 +52,6 @@
   "browser_preflight_required": true,
   "browser_preflight_before": "image_generation_and_flow_spending",
   "on_browser_connection_failure": "documented_recovery_once_then_targeted_user_setup",
-  "full_access_implies_browser_connection": false
+  "full_access_implies_browser_connection": false,
+  "audio_assembly": "automatic_without_listening_approval"
 }
