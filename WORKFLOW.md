@@ -21,6 +21,8 @@ Save a project manifest containing:
 
 Reuse completed work when resuming. Standard-run authorization is 50 existing Flow credits, five transitions at 10 credits each, with zero cash spending. Use portrait 9:16 unless the brief says otherwise. Confirm the selected account and expected settings from the visible UI once; no separate pricing research or repeated credit-approval prompts. Never change accounts, buy credits or exceed the agreed budget without authorization. Handle agreements under the agent's applicable confirmation rules.
 
+Before image generation, complete BROWSER-SETUP.md and record a passed browser preflight. Stop with `browser_setup_required` if connection, login or required transfer capabilities are unavailable.
+
 ## 2. Create six images, starting with the ending
 
 Generate **06 completed house first**, review it yourself and continue without a user approval pause unless a preview was requested. Require finished roof, facade, windows, doors, paths, landscaping and furnishings. If requested, the pool is fully tiled, filled with clean water and surrounded by a finished deck. No workers, scaffolding, tools, materials or unfinished patches. Keep the whole house and pool in frame.

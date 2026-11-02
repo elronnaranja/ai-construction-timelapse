@@ -49,5 +49,9 @@
   "resume_reuses_saved_answers": true,
   "reuse_creative_answers_across_projects": false,
   "planned_user_input": "one_initial_questionnaire_per_new_video",
-  "after_initial_answers": "autonomous_execution_except_new_requirements_or_blockers"
+  "after_initial_answers": "autonomous_execution_except_new_requirements_or_blockers",
+  "browser_preflight_required": true,
+  "browser_preflight_before": "image_generation_and_flow_spending",
+  "on_browser_connection_failure": "documented_recovery_once_then_targeted_user_setup",
+  "full_access_implies_browser_connection": false
 }

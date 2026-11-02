@@ -25,8 +25,9 @@ State once alongside the questions: the standard run uses six images and five tr
 
 This authorization covers routine image creation, uploads, prompt entry, rendering, downloads, local assembly and corrections within the same 50-credit total. Failed jobs or retries do not create an extra budget. A request to create a video does not authorize purchases, subscriptions or account switching.
 
-### 2. Set up, without bothering the user
+### 2. Verify browser setup before production
 
+- First follow BROWSER-SETUP.md. Browser preflight must pass before image generation or Flow spending. Missing browser setup is a genuine blocker: guide the user through the minimum plugin/extension and permission clicks, then verify the real Flow UI. Full access alone is not a browser connection.
 - Create `projects/<short-project-name>/` in this folder and work only there.
 - Check that Python 3 and FFmpeg are available. If one is missing, install it with the system's normal package manager. Ask the user only if installing needs their permission or password.
 - Open Google Flow (https://labs.google/flow; it may redirect to flow.google.com) in your browser. If it isn't signed in, ask the user to sign in to their Google account in that browser window, and wait. Never ask for or type passwords.
