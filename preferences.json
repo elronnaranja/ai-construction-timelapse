@@ -46,5 +46,8 @@
   "new_project_initial_questions_required": true,
   "wait_for_initial_answers": true,
   "complete_initial_brief_requires_confirmation": true,
-  "resume_reuses_saved_answers": true
+  "resume_reuses_saved_answers": true,
+  "reuse_creative_answers_across_projects": false,
+  "planned_user_input": "one_initial_questionnaire_per_new_video",
+  "after_initial_answers": "autonomous_execution_except_new_requirements_or_blockers"
 }

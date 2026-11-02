@@ -26,6 +26,8 @@ Clone https://github.com/elronnaranja/ai-construction-timelapse and make me a co
 
 **2. Answer the initial questions.** The agent always starts each new video by asking about the setting, starting condition, finished house/storey count, pool or special features, unchanged surroundings and orientation. It summarizes details you already supplied and asks only what is missing; a complete brief gets one initial confirmation. Include any house, setting or background details you care about, or say "surprise me". Default: portrait 9:16, six images and five transitions.
 
+Your answers apply to this video only. This initial exchange is the only planned typing; afterward, the agent handles routine work and asks only when a new requirement or blocker needs your decision.
+
 **3. Sign in to Google Flow** if needed. Use an account with at least 50 available credits.
 
 **4. Let the agent run.** Your request authorizes up to 50 existing credits: five transitions × 10 credits, one output each, no purchases. It checks the expected visible setting once and proceeds without repeated cost or design approvals. Prompts are prepared in advance and entered with a single fill/paste each. It stops only for a real blocker, required new legal consent, or unavailable audio listening review.
